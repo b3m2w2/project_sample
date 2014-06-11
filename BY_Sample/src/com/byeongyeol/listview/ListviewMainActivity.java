@@ -1,4 +1,4 @@
-package com.byeongyeol.main;
+package com.byeongyeol.listview;
 
 import java.util.ArrayList;
 
@@ -16,27 +16,25 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.byeongyeol.listview.ListviewMainActivity;
 import com.byeongyeol.sample.R;
 
-public class SampleMainActivity extends Activity implements OnItemClickListener {
-
+public class ListviewMainActivity extends Activity implements OnItemClickListener {
+	
 	private ListView			mListView;
 	private MainListAdapter		mListAdapter;
 	private ArrayList<String[]>	listData;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState)
-	{
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.samplemainactivity);
-
-		SampleMainListData mSampleMainListData = new SampleMainListData();
-		listData = mSampleMainListData.getMainListData();
+		setContentView(R.layout.listviewmainactivity);
+		
+		ListviewMainListData mListviewMainListData = new ListviewMainListData();
+		listData = mListviewMainListData.getMainListData();
 
 		initUI();
 	}
-
+	
 	private void initUI() 
 	{
 		mListAdapter = new MainListAdapter(this, listData);
@@ -59,7 +57,7 @@ public class SampleMainActivity extends Activity implements OnItemClickListener 
 		switch (pos)
 		{
 			case 0:
-				mIntent = new Intent(this, ListviewMainActivity.class);
+				mIntent = new Intent(this, ListviewSampleDefalutListView.class);
 				break;
 	
 			default:
@@ -69,7 +67,7 @@ public class SampleMainActivity extends Activity implements OnItemClickListener 
 		if (mIntent != null)
 			startActivity(mIntent);
 	}
-
+	
 	public class MainListAdapter extends BaseAdapter {
 		
 		private Context				mContext;

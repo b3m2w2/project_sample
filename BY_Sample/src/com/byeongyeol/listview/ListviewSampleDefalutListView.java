@@ -1,10 +1,9 @@
-package com.byeongyeol.main;
+package com.byeongyeol.listview;
 
 import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,10 +15,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.byeongyeol.listview.ListviewMainActivity;
 import com.byeongyeol.sample.R;
 
-public class SampleMainActivity extends Activity implements OnItemClickListener {
+public class ListviewSampleDefalutListView extends Activity implements OnItemClickListener {
 
 	private ListView			mListView;
 	private MainListAdapter		mListAdapter;
@@ -30,13 +28,17 @@ public class SampleMainActivity extends Activity implements OnItemClickListener 
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.samplemainactivity);
-
-		SampleMainListData mSampleMainListData = new SampleMainListData();
-		listData = mSampleMainListData.getMainListData();
+		
+		listData = new ArrayList<String[]>();
+		
+		for (int i = 0; i < 20; i++)
+		{
+			listData.add(new String[] { "Default ListView " + i , "0" });
+		}
 
 		initUI();
 	}
-
+	
 	private void initUI() 
 	{
 		mListAdapter = new MainListAdapter(this, listData);
@@ -46,30 +48,13 @@ public class SampleMainActivity extends Activity implements OnItemClickListener 
 		mListView.setOnItemClickListener(this);
 		mListView.setAdapter(mListAdapter);
 	}
-
+	
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) 
 	{
 		Toast.makeText(this, "현재 위치는? = " + position, Toast.LENGTH_SHORT).show();
-		
-		Intent mIntent = null;
-		
-		int pos = Integer.valueOf(listData.get(position)[1]);
-
-		switch (pos)
-		{
-			case 0:
-				mIntent = new Intent(this, ListviewMainActivity.class);
-				break;
-	
-			default:
-				break;
-		}
-		
-		if (mIntent != null)
-			startActivity(mIntent);
 	}
-
+	
 	public class MainListAdapter extends BaseAdapter {
 		
 		private Context				mContext;

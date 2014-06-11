@@ -26,6 +26,28 @@
             </intent-filter>
         </activity>
         
+        <activity
+            android:name="com.byeongyeol.listview.ListviewMainActivity"
+            android:configChanges="locale|keyboard|keyboardHidden|orientation|uiMode|screenSize|fontScale"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="com.byeongyeol.listview.ListviewSampleDefalutListView"
+            android:configChanges="locale|keyboard|keyboardHidden|orientation|uiMode|screenSize|fontScale"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
     </application>
 
 </manifest>
