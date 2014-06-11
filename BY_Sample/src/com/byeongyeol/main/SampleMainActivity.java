@@ -1,47 +1,100 @@
 package com.byeongyeol.main;
-import com.byeongyeol.sample.R;
+
+import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.byeongyeol.sample.R;
 
-public class SampleMainActivity extends Activity {
+public class SampleMainActivity extends Activity implements OnItemClickListener {
+
+	private ListView			mListView;
+	private MainListAdapter		mListAdapter;
+	private ArrayList<String[]>	listData;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState)
+	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.samplemainactivity);
+
+		SampleMainListData mSampleMainListData = new SampleMainListData();
+		listData = mSampleMainListData.getMainListData();
+
+		initUI();
+	}
+
+	private void initUI() 
+	{
+		mListAdapter = new MainListAdapter(this, listData);
+
+		mListView = (ListView) findViewById(R.id.main_list);
+		mListView.setFadingEdgeLength(0);
+		mListView.setOnItemClickListener(this);
+		mListView.setAdapter(mListAdapter);
 	}
 
 	@Override
-	protected void onStart() {
-		super.onStart();
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) 
+	{
+		Toast.makeText(this, "현재 위치는? = " + position, Toast.LENGTH_SHORT).show();
 	}
 
-	@Override
-	protected void onRestart() {
-		super.onRestart();
-	}
+	public class MainListAdapter extends BaseAdapter {
+		
+		private Context				mContext;
+		private LayoutInflater		inflater;
+		private ArrayList<String[]>	mListData;
 
-	@Override
-	protected void onResume() {
-		super.onResume();
-	}
+		public MainListAdapter(Context context, ArrayList<String[]> listData) 
+		{
+			mContext	= context;
+			inflater	= LayoutInflater.from(mContext);
+			mListData	= listData;
+		}
 
-	@Override
-	protected void onPause() {
-		super.onPause();
-	}
+		@Override
+		public int getCount() 
+		{
+			return mListData.size();
+		}
 
-	@Override
-	protected void onStop() {
-		super.onStop();
-	}
+		@Override
+		public Object getItem(int position) 
+		{
+			return mListData.get(position);
+		}
 
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-	}
+		@Override
+		public long getItemId(int position) 
+		{
+			return position;
+		}
 
-	
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) 
+		{
+			final String[] item = mListData.get(position);
+
+			TextView item_title;
+
+			convertView = inflater.inflate(R.layout.main_list_item, null);
+			
+			item_title = (TextView) convertView.findViewById(R.id.title);
+			item_title.setText(item[0].toString());
+
+			return convertView;
+		}
+	}
 }
