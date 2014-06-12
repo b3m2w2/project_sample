@@ -11,7 +11,7 @@ public class ListviewMainListData {
 		listData = new ArrayList<String[]>();
 
 		listData.add(new String[] { "기본 리스트뷰", "0" });
-//		listData.add(new String[] { "버튼이 있는 리스트뷰", "1" });
+		listData.add(new String[] { "버튼이 있는 리스트뷰", "1" });
 //		listData.add(new String[] { "테스트03", "2" });
 //		listData.add(new String[] { "테스트04", "3" });
 //		listData.add(new String[] { "테스트05", "4" });

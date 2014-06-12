@@ -14,7 +14,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.byeongyeol.listview.ListviewMainActivity;
 import com.byeongyeol.sample.R;
@@ -50,8 +49,6 @@ public class SampleMainActivity extends Activity implements OnItemClickListener 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) 
 	{
-		Toast.makeText(this, "현재 위치는? = " + position, Toast.LENGTH_SHORT).show();
-		
 		Intent mIntent = null;
 		
 		int pos = Integer.valueOf(listData.get(position)[1]);
