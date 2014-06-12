@@ -60,6 +60,10 @@ public class ListviewMainActivity extends Activity implements OnItemClickListene
 			case 1:
 				mIntent = new Intent(this, ListviewSampleButtonListView.class);
 				break;
+				
+			case 2:
+				mIntent = new Intent(this, ListviewSampleCheckBox01ListView.class);
+				break;
 	
 			default:
 				break;

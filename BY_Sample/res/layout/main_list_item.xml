@@ -16,7 +16,7 @@
 	        android:gravity="left|center"
 	        android:textSize="12sp"
 	        android:textColor="#000000"
-	        android:text="Test"/>
+	        android:text="@string/test_title"/>
 
 	    </LinearLayout>
 </RelativeLayout>

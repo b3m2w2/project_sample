@@ -15,7 +15,7 @@
             android:gravity="center"
             android:textSize="12sp"
             android:textColor="#000000"
-            android:text="프로젝트 중 사용할 수 있는 리스트뷰 들에 대해서..."/>
+            android:text="@string/listview_description01"/>
         
     </LinearLayout>
     

@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">BY_Sample</string>
+    
+    <string name="test_title">테스트</string>
+    <string name="all_check">전체선택</string>
+    <string name="all_uncheck">전체해제</string>
+    <string name="checked_confirmation">선택확인</string>
+    <string name="test_ellipsis">...</string>
+    <string name="test_btn_title">테스트 버튼</string>
+    <string name="listview_description01">프로젝트 중 사용할 수 있는 리스트뷰 들에 대해서...</string>
+
+</resources>

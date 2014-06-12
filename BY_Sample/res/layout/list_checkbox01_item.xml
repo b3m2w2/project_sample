@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="46dip"
+    android:background="#ffffff" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dip" >
+
+        <ToggleButton
+            android:id="@+id/btn_checkbox"
+            android:layout_width="24.9dip"
+            android:layout_height="24.9dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="8.9dip"
+            android:textOff=""
+            android:textOn="" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="100dip"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="15dip"
+            android:layout_toRightOf="@id/btn_checkbox"
+            android:gravity="left|center"
+            android:text="@string/test_title"
+            android:textColor="#000000"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</RelativeLayout>
